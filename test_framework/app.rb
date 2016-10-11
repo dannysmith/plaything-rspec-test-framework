@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/tf_page_object.rb'
 Dir[File.dirname(__FILE__) + '/page_objects/*.rb'].each {|file| require file }
 
 class App
-  attr_reader :browser, :google_home
+  attr_reader :browser
 
   @@browser = Watir::Browser.new :chrome
 
@@ -17,7 +17,5 @@ class App
     @@browser.quit
   end
 
-  def initialize
-    raise Exception, "You cannot instantiate an App object"
-  end
+  private_class_method :new
 end
